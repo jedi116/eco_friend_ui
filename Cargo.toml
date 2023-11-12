@@ -1,0 +1,19 @@
+[package]
+name = "eco_friend_ui"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+yew = { version = "0.21.0", features = ["csr"] }
+muicss-yew = { git = "https://github.com/AlephAlpha/muicss-yew" } # does not work - yew material UI components
+web-sys = "0.3.64"
+wasm-bindgen = "0.2.87"
+wasm-bindgen-futures = "0.4.37"
+reqwasm = "0.5.0"
+serde_json = "1.0.107"
+serde = {verison ="1.0.189", features = ["derive"]}
+js-sys = "0.3.64"
+gloo = "0.10.0"
+yew-router = "0.18.0"
