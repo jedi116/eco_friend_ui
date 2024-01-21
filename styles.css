@@ -238,8 +238,8 @@
   
   .headline {
     width: 100%;
-    height: 50vh;
-    min-height: 350px;
+    height: 100%;
+    min-height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.7)), url('img/unsplash-under-water.jpg');
     background-size: 100% 100%; /* Stretch the image to fit the container */
     background-repeat: no-repeat; 
@@ -396,6 +396,22 @@
   .submit:active {
     background-color: #06b;
   }
+
+  .get-started {
+    background-color: rgb(73, 203, 86);
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    outline: 0;
+    text-align: center;
+    width: 250px;
+    align-self: center;
+  }
   
 
   .place-option-button {
@@ -486,4 +502,44 @@
 .error-msg {
   color: #D8000C;
   background-color: #FFBABA;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #527EEF;
+  color: #ffffff;
+  text-align: left;
+  border-radius: 40px;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    margin: 30px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #527EEF;
+}
+
+.report-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

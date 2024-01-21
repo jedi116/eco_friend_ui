@@ -10,6 +10,7 @@ mod pages {
     pub mod calculator;
     pub mod home;
     pub mod not_found;
+    pub mod report;
 }
 
 use yew::prelude::*;
@@ -21,6 +22,7 @@ use crate::components::nav_bar::Navbar;
 use crate::pages::home::Home;
 use crate::pages::calculator::Calculator;
 use crate::pages::not_found::NotFound;
+use crate::pages::report::Report;
 
 #[derive(Routable, PartialEq, Eq, Clone, Debug)]
 pub enum Route {
@@ -28,6 +30,8 @@ pub enum Route {
     Home,
     #[at("/calc")]
     Calculator,
+    #[at("/report/:origin/:destination")]
+    Report {origin: String, destination: String},
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -61,6 +65,9 @@ fn switch(routes: Route) -> Html {
                 <Calculator />
             }
         },
+        Route::Report {origin, destination} => {
+            html!(<Report origin={origin} destination={destination}/>)
+        }
         Route::NotFound => {
             html! { <NotFound /> }
         }

@@ -14,7 +14,6 @@ pub fn nav_bar () -> Html {
                         <ul class="nav no-search">
                             <li class="nav-item"><a href="/">{"Home"}</a></li>
                             <li class="nav-item"><a href="/calc">{"Calculator"}</a></li>
-                            <li class="nav-item"><a href="#">{"Work"}</a></li>
                         </ul>
                     </nav>
                 </div>

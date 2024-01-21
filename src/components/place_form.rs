@@ -4,6 +4,7 @@ use wasm_bindgen_futures::spawn_local;
 use yew::prelude::*;
 use serde_json::Value;
 use gloo::console::log;
+use web_sys;
 
 use crate::components::text_input::*;
 use crate::components::button::*;
@@ -58,11 +59,15 @@ pub fn PlaceForm() -> Html {
     let selected_destination_state = use_state(||"".to_owned());
     let selected_copy_destination_state = selected_destination_state.clone();
 
+    let selected_destination_state_for_report = selected_destination_state.clone();
+
     let origin_state = use_state(||"".to_owned());
     let copy_origin_state = origin_state.clone();
 
     let selected_origin_state = use_state(||"".to_owned());
     let selected_copy_origin_state = selected_origin_state.clone();
+
+    let selected_origin_state_for_report = selected_origin_state.clone();
 
     let handle_destination_input = Callback::from(move |value: String| {
         destination_state.set(value);
@@ -140,7 +145,12 @@ pub fn PlaceForm() -> Html {
         selected_destination_state.set(value.clone());
     });
     let handle_calculate_click =  Callback::from(move |value: String| {
-        // selected_destination_state.set(value.clone());
+        let redirect_uri = format!("/report/{}/{}",&*selected_origin_state_for_report, &*selected_destination_state_for_report);
+        let window = web_sys::window().expect("can not load window");
+        window
+        .location()
+                    .set_href(&redirect_uri)
+                    .expect("failed to set the href");
     });
     html! {
         <div class="eco-form1">
